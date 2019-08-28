@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>di chuyen doi tuong</title>
+</head>
+<body onload="setInterval(run,10)">
+<script src="dua-xe.js"></script>
+<img id="anhdong2" src="girlxinh.gif" style="position: absolute;
+ left: 0px; top: 0px; " height="200" width="150"/>
+<script>
+    let change=false;
+
+    function run() {
+        let anh1 = document.getElementById('anhdong2');
+        let maxtop = window.innerHeight;
+        let maxleft = window.innerWidth;
+
+        let top = parseInt(anh1.style.top);
+        let left = parseInt(anh1.style.left);
+        if (!change) {
+            if (left < maxleft - 150) {
+                left += 5;
+            } else if (top < maxtop - 200) {
+                top += 5;
+            } else {
+                change = true;
+            }
+        }
+        if (change) {
+            if (left > 0) {
+                left -= 5;
+            } else if (top > 0) {
+                top -= 5;
+            } else {
+                change = false;
+            }
+        }
+        anh1.style.left = left + 'px';
+        anh1.style.top = top + 'px';
+
+    }
+
+</script>
+</body>
+</html>
